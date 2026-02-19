@@ -8,6 +8,7 @@ export const userLogin = createAsyncThunk(
     async (data, thunkApi) => {
         try {
             const res = await api.post("/user/login", data);
+            console.log("checking user login data",res.data.user)
             if (res?.data?.user?.role_id === 2) {
                 return thunkApi.rejectWithValue(
                     "Astrologer cannot login from here"

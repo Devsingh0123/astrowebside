@@ -33,11 +33,14 @@ const NavbarAstro = () => {
     const navigate = useNavigate()
 
 
+
     useEffect(() => {
         const storedRole = localStorage.getItem("role_id")
         setRole(storedRole)
     }, [])
 
+console.log("astro data",astrologer)
+console.log("user data",user)
 
 
 

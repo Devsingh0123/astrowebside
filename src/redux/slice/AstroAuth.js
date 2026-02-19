@@ -22,9 +22,25 @@ export const AstrologerLogin = createAsyncThunk(
   async (data, thunkApi) => {
     try {
       const res = await api.post("/astro/login", data);
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("role_id", res.data.astro.role_id);
-      return res.data.astro;
+      console.log("checking astro login data",res.data.astro)
+
+ if (res?.data?.user?.role_id === 3) {
+                return thunkApi.rejectWithValue(
+                    "User cannot login from here"
+                );
+            } else {
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("role_id", res?.data?.user?.role_id)
+
+
+
+                // localStorage.setItem("token", res.data.token);
+                return res.data.astro;
+            }
+
+      // localStorage.setItem("token", res?.data?.token);
+      // localStorage.setItem("role_id", res?.data?.astro?.role_id);
+      // return res.data.astro;
     } catch (error) {
       return thunkApi.rejectWithValue(
         error.response?.data?.message || "Login failed"

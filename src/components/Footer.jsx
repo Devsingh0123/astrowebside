@@ -167,7 +167,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li className="text-white text-sm mb-2   transition-all duration-300 hover:translate-x-2">
-                    <Link to={"https://adkrayons.com/talk-to-astrologer"}>
+                    <Link to={"/talk-to-astrologer"}>
 
                       <FaAnglesRight className="me-2 inline" /> Chat / Call with
                       Astrologer
