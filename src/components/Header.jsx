@@ -13,6 +13,7 @@ import UserLogin from "./UserLogin"
 import { getHoroscope } from "@/redux/slice/HoroscopesSlice"
 import { AstrologerLogout, AstrologerProfile } from "@/redux/slice/AstroAuth"
 import { userLogin, userLogout, userProfile } from "@/redux/slice/UserAuth"
+import Navbar from "./Navbar"
 
 // Mobile Navigation Section Component
 const MobileNavSection = ({ navItems }) => {
@@ -222,6 +223,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full 
 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-400 
 shadow-lg  ">
+<Navbar/>
       <div className="container flex h-16 items-center justify-between  ">
         {/* LOGO */}
         <Link to="/" className="flex items-center space-x-2 ">

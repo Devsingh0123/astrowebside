@@ -3,6 +3,134 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+/* Banner Section */
+.banner-section {
+  @apply bg-[#FFFFFF] py-16;
+}
+
+/* Container */
+.banner-container {
+  @apply max-w-7xl mx-auto px-10;
+}
+
+/* Grid Top Section */
+.banner-top {
+  @apply grid lg:grid-cols-2 grid-cols-1 gap-20 items-center;
+}
+
+/* Left Content */
+.banner-left {
+  /* @apply space-y-6 text-center lg:text-left; */
+ @apply space-y-6 text-center text-left ;
+}
+
+/* Heading Gradient */
+.banner-heading {
+  @apply text-3xl md:text-5xl font-extrabold leading-tight bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-400 bg-clip-text text-transparent;
+}
+
+/* Paragraph */
+.banner-text {
+  @apply text-lg text-gray-600 max-w-xl mx-auto lg:mx-0;
+}
+
+/* Right Image */
+.banner-image {
+  @apply relative w-[450px] aspect-square mx-auto ;
+}
+
+.banner-image img.outer {
+  @apply w-full h-full animate-spin;
+  animation-duration: 20s;
+}
+
+.banner-inner {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+.banner-inner img {
+  @apply w-[65%] h-auto;
+}
+
+/* Cards Section */
+.banner-cards {
+  @apply flex justify-center flex-wrap gap-6 mt-16;
+}
+
+/* Individual Card */
+.banner-card {
+  @apply bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer w-[250px];
+}
+
+/* Card Content */
+.banner-card-title {
+  @apply flex items-center gap-3 text-sm font-medium text-gray-800;
+}
+
+.banner-card-icon {
+  @apply flex h-9 w-9 items-center justify-center rounded-full text-white;
+}
+
+.banner-card-icon.chat {
+  @apply bg-gradient-to-br from-pink-500 to-orange-400;
+}
+
+.banner-card-icon.phone {
+  @apply bg-gradient-to-br from-purple-500 to-indigo-500;
+}
+
+.banner-card-arrow {
+  @apply text-gray-400 h-4 w-4;
+}
+/* Counter Section Background */
+.counter-section {
+  @apply py-20 bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Container */
+.counter-container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+/* Grid Wrapper */
+.counter-grid {
+  @apply grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6;
+}
+
+/* Individual Counter Card */
+.counter-item {
+  @apply bg-white rounded-2xl p-8 shadow-lg transition-transform duration-300 cursor-pointer;
+  text-align: center;
+}
+
+.counter-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Number Styling */
+.counter-item h2 {
+  @apply text-4xl md:text-5xl font-extrabold text-gray-900;
+  background: linear-gradient(90deg, #f43f5e, #f59e0b, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Label Styling */
+.counter-item p {
+  @apply mt-3 text-lg font-medium text-gray-700;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .counter-item h2 {
+    @apply text-3xl;
+  }
+  .counter-item p {
+    @apply text-base;
+  }
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -48,7 +176,7 @@
 :root {
   --radius: 0.65rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
+  /* --foreground: oklch(0.141 0.005 285.823); */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);

@@ -1,34 +1,27 @@
-import React from 'react'
+import React from "react";
+
+const counters = [
+  { number: "500K+", label: "Happy Customers" },
+  { number: "1M+", label: "Consultations Delivered" },
+  { number: "250+", label: "Astrologers Available" },
+  { number: "100+", label: "Services Offered" },
+];
 
 const Counter = () => {
-    return (
-       <section className="py-20 bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50">
-
-            <div className="container">
-                <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 text-center bg-primary/20 p-10 rounded-2xl border border-secondary">
-
-                    <div>
-                        <h2 className="text-4xl font-bold text-black">500K+</h2>
-                        <p className="mt-2 text-lg font-medium">Happy Customers</p>
-                    </div>
-                    <div>
-                        <h2 className="text-4xl font-bold text-black">1M+</h2>
-                        <p className="mt-2 text-lg font-medium">Consultations Delivered</p>
-                    </div>
-
-                    <div>
-                        <h2 className="text-4xl font-bold text-black">1M+</h2>
-                        <p className="mt-2 text-lg font-medium">Consultations Delivered</p>
-                    </div>
-                    <div>
-                        <h2 className="text-4xl font-bold text-black">1M+</h2>
-                        <p className="mt-2 text-lg font-medium">Consultations Delivered</p>
-                    </div>
-                </div>
-
+  return (
+    <section className="counter-section">
+      <div className="counter-container">
+        <div className="counter-grid">
+          {counters.map((item, index) => (
+            <div key={index} className="counter-item">
+              <h2>{item.number}</h2>
+              <p>{item.label}</p>
             </div>
-        </section>
-    )
-}
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Counter
+export default Counter;
