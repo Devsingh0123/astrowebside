@@ -1,28 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import UserLogin from "./UserLogin";
-import logo from "../assets/logo-light.png";
 import LanguageSwitcher from "@/LanguageSwitcher";
+import logoastroremove from "@/assets/logoastroremove.png"
 
 const Navbar = () => {
+  
   return (
-    <header className="w-full bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-400 shadow-md">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header className="w-full bg-white shadow-sm border-b">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* LEFT SIDE - LOGO */}
-        <Link to="/" className="flex items-center space-x-2">
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-12 w-auto"
-          />
-        </Link>
-<LanguageSwitcher/>
-        {/* RIGHT SIDE - USER LOGIN */}
-        <div>
-          <UserLogin />
-        </div>
+        <div className="flex items-center justify-between h-16">
+          
+          {/* LEFT SIDE - LOGO */}
+          <Link to="/" className="flex items-center ">
+            <img
+              src={logoastroremove}
+              alt="Logo"
+              className="h-10 w-auto object-contain"
+            />
+          </Link>
 
+          {/* RIGHT SIDE - LANGUAGE + ACCOUNT */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <LanguageSwitcher />
+            <UserLogin />
+          </div>
+
+        </div>
       </div>
     </header>
   );

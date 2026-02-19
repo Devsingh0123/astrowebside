@@ -220,18 +220,17 @@ const Header = () => {
   }, [horoscope])
 
   return (
-    <header className="sticky top-0 z-50 w-full 
-bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-400 
-shadow-lg  ">
-<Navbar/>
-      <div className="container flex h-16 items-center justify-between  ">
-        {/* LOGO */}
-        <Link to="/" className="flex items-center space-x-2 ">
-          <img src={logo} alt="Logo" className="h-12 w-auto" />
-        </Link>
+    <header className="sticky top-0 z-50 w-full">
 
+      <div className=" flex h-16 items-center justify-between  ">
+        {/* LOGO */}
+        {/* <Link to="/" className="flex items-center space-x-2 ">
+          <img src={logo} alt="Logo" className="h-12 w-auto" />
+        </Link> */}
+       <Navbar/>
         {/* DESKTOP MENU */}
-        <nav className="hidden lg:flex items-center space-x-6">
+       <div className="hidden lg:flex items-center space-x-6 absolute left-1/2 -translate-x-1/2">
+
           {navigationItems.map((item, index) => (
             <div
               key={index}
@@ -326,11 +325,12 @@ shadow-lg  ">
                 </DropdownMenu>
               ) :
                 (
-                  <UserLogin />
+               ''
+               
                 )
             }
           </div>
-        </nav>
+        </div>
 
         {/* MOBILE MENU */}
         <Sheet>
@@ -377,8 +377,8 @@ shadow-lg  ">
                       Dashboard
                     </Button>
                   </SheetClose>)}
-                {(!astrologer && !user) &&
-                  (<UserLogin />)}
+                {/* {(!astrologer && !user) &&
+                  (<UserLogin />)} */}
 
 
                 {(astrologer?.name || user?.name) &&

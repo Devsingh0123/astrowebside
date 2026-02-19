@@ -4,7 +4,7 @@ import { IoIosChatbubbles } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 import outercircle1 from "@/assets/outercircle1.png"
-import innercircle from "@/assets/innercircle.png"
+import gemini from "@/assets/gemini.png"
 
 const Banner = () => {
   return (
@@ -29,7 +29,7 @@ const Banner = () => {
           <div className="banner-image">
             <img src={outercircle1} alt="outer" className="outer" />
             <div className="banner-inner">
-              <img src={innercircle} alt="inner" />
+              <img src={gemini} alt="inner" />
             </div>
           </div>
         </div>
