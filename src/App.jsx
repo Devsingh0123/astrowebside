@@ -89,7 +89,7 @@ const App = () => {
             <Route path='/update-user' element={<UpdateUser />} />
             {/* <Route path='/chat-with-astrologer' element={<ChatWithAstro />} /> */}
             <Route path='/talk-to-astrologer' element={<CallwithAstro />} />
-            <Route path='astro-details/:id' element={<Astrodetails />} />
+            <Route path='/astro-details/:id' element={<Astrodetails />} />
             <Route path='/horoscopes/:date' element={<Horoscopes />} />
             <Route path='/horoscopes/:time/:horos' element={<HoroscopeDetails />} />
             <Route path='/astro-login' element={<AstroLogin />} />

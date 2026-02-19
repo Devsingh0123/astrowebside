@@ -8,6 +8,7 @@ const Astrodetails = () => {
     const dispatch = useDispatch();
 
     const { singleAstro } = useSelector((state) => state.astroAuth);
+    console.log("single astro details", singleAstro)
 
     // shortcut (avoid singleAstro?.[0] everywhere)
     const astro = singleAstro?.[0];
@@ -44,7 +45,7 @@ const Astrodetails = () => {
                         <div className="flex flex-col items-center">
                             <div className="w-90 h-70 rounded-2xl overflow-hidden border">
                                 <img
-                                    src={astro?.profile_image}
+                                    src={singleAstro?.profile_image}
                                     alt="profile"
                                     className="w-full h-full object-cover"
                                 />
@@ -54,8 +55,8 @@ const Astrodetails = () => {
                         {/* Details */}
                         <div className="flex-1 self-center">
                             <h2 className="text-3xl font-bold mb-2 flex items-center gap-2">
-                                {astro?.name?.charAt(0).toUpperCase() + astro?.name}
-                                {astro?.is_online && (
+                                {singleAstro?.name?.charAt(0).toUpperCase() + singleAstro?.name}
+                                {singleAstro?.is_online && (
                                     <span className="w-3 h-3 bg-green-500 rounded-full"></span>
                                 )}
                             </h2>
@@ -63,7 +64,7 @@ const Astrodetails = () => {
                             {/* Expertise */}
                             <p className="text-sm text-gray-600 mb-1">
                                 <span className="font-semibold  mr-1"> Expertise: </span>{" "}
-                                {astro?.expertise?.map((e, i) => (
+                                {singleAstro?.expertise?.map((e, i) => (
                                     <span key={i} className="mr-2 capitalize">
                                         {e.replace("_", " ")}
                                     </span>
@@ -72,17 +73,17 @@ const Astrodetails = () => {
 
                             {/* Languages */}
                             <p className="text-sm text-gray-600 mb-1">
-                                <span className="font-semibold  mr-1"> Languages: </span> {astro?.languages?.join(", ")}
+                                <span className="font-semibold  mr-1"> Languages: </span> {singleAstro?.languages?.join(", ")}
                             </p>
 
                             {/* Category */}
                             <p className="text-sm text-gray-600 mb-1">
-                                <span className="font-semibold  mr-1">  Category: </span> {astro?.category?.join(", ")}
+                                <span className="font-semibold  mr-1">  Category: </span> {singleAstro?.category?.join(", ")}
                             </p>
 
                             {/* Experience */}
                             <p className="text-sm text-gray-600 mb-1">
-                                <span className="font-semibold  mr-1"> Exp: </span> {astro?.experience} Years
+                                <span className="font-semibold  mr-1"> Exp: </span> {singleAstro?.experience} Years
                             </p>
                             <p className="text-sm text-gray-600 flex items-center gap-2">
                                 <span className="font-semibold  mr-1">  Rating :</span>
@@ -90,7 +91,7 @@ const Astrodetails = () => {
                                     {[1, 2, 3, 4, 5].map((star) => (
                                         <span
                                             key={star}
-                                            className={`text-sm ${star <= Math.round(astro?.rating || 0)
+                                            className={`text-sm ${star <= Math.round(singleAstro?.rating || 0)
                                                 ? "text-yellow-400"
                                                 : "text-gray-300"
                                                 }`}
@@ -104,10 +105,10 @@ const Astrodetails = () => {
 
                             {/* Price */}
                             <p className="mt-2  font-medium text-sm">
-                                ₹ {astro?.chat_price}/min (Chat)
+                                ₹ {singleAstro?.chat_price}/min (Chat)
                             </p>
                             <p className="mt-2  font-medium text-sm">
-                                ₹ {astro?.call_price}/min (Call)
+                                ₹ {singleAstro?.call_price}/min (Call)
                             </p>
 
                             <div className="flex gap-4 mt-4">
@@ -117,7 +118,7 @@ const Astrodetails = () => {
 
                                 <button className="border border-gray-400 text-gray-500 px-6 py-2 rounded-full text-sm">
                                     Start Call
-                                    {!astro?.is_online && (
+                                    {!singleAstro?.is_online && (
                                         <span className="block text-xs text-red-500">
                                             Currently offline
                                         </span>
@@ -144,12 +145,12 @@ const Astrodetails = () => {
 
                         <div className="flex gap-6">
                             <div className="text-center">
-                                <p className="text-3xl font-bold">{astro?.rating || 0}</p>
+                                <p className="text-3xl font-bold">{singleAstro?.rating || 0}</p>
                                 <span className="flex">
                                     {[1, 2, 3, 4, 5].map((star) => (
                                         <span
                                             key={star}
-                                            className={`text-sm ${star <= Math.round(astro?.rating || 0)
+                                            className={`text-sm ${star <= Math.round(singleAstro?.rating || 0)
                                                 ? "text-yellow-400"
                                                 : "text-gray-300"
                                                 }`}
@@ -159,7 +160,7 @@ const Astrodetails = () => {
                                     ))}
                                 </span>
                                 <p className="text-xs text-gray-500 mt-1">
-                                    {astro?.rating_count} total
+                                    {singleAstro?.rating_count} total
                                 </p>
                             </div>
 

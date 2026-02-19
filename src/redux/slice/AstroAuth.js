@@ -67,8 +67,10 @@ export const GetAllAstrologer = createAsyncThunk(
 export const GetSingleAstro = createAsyncThunk(
   "astroAuth/getSingleAstro",
   async (data, thunkApi) => {
+    console.log("get single astro api data",data);
     try {
-      const res = await api.get("/astro", data);
+      const res = await api.get(`/astro/${data}`);
+      console.log("get single astro api response",res.data.data)
 
       return res.data.data;
     } catch (error) {
@@ -220,7 +222,7 @@ const AstroAuthSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      /* ---------- update Astrologer ---------- */
+      /* ---------- single Astrologer ---------- */
       .addCase(GetSingleAstro.pending, (state) => {
         state.loading = true;
         state.error = null;
