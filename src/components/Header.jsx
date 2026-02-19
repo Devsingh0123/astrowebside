@@ -6,15 +6,14 @@ import { useEffect, useState } from "react"
 import { GiStarShuriken } from "react-icons/gi"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Navigate, useNavigate } from "react-router-dom"
-import logo from "../assets/logo-light.png"
+import logoastroremove from "../assets/logoastroremove.png"
 import { Button } from "./ui/button"
 import { ScrollArea } from "./ui/scroll-area"
 import UserLogin from "./UserLogin"
 import { getHoroscope } from "@/redux/slice/HoroscopesSlice"
 import { AstrologerLogout, AstrologerProfile } from "@/redux/slice/AstroAuth"
 import { userLogin, userLogout, userProfile } from "@/redux/slice/UserAuth"
-import Navbar from "./Navbar"
-
+import LanguageSwitcher from "@/LanguageSwitcher";
 // Mobile Navigation Section Component
 const MobileNavSection = ({ navItems }) => {
   const [openIndex, setOpenIndex] = useState(null)
@@ -89,7 +88,19 @@ const Header = () => {
   const [role, setRole] = useState(localStorage.getItem("role_id"))
   const navigate = useNavigate()
   const dispatch = useDispatch()
+    const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
 
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
   const moveToDashboard = () => {
     setIsDropdownOpen(false)
     navigate("/dashboard/profile")
@@ -220,17 +231,21 @@ const Header = () => {
   }, [horoscope])
 
   return (
-    <header className="sticky top-0 z-50 w-full">
-
-      <div className=" flex h-16 items-center justify-between  ">
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ease-in-out
+      ${scrolled
+          ? "bg-white/60 backdrop-blur-lg shadow-lg border-b border-white/20"
+          : "bg-white"
+        }`}
+    >
+      <div className="container flex h-16 items-center justify-between  ">
         {/* LOGO */}
-        {/* <Link to="/" className="flex items-center space-x-2 ">
-          <img src={logo} alt="Logo" className="h-12 w-auto" />
-        </Link> */}
-       <Navbar/>
-        {/* DESKTOP MENU */}
-       <div className="hidden lg:flex items-center space-x-6 absolute left-1/2 -translate-x-1/2">
+        <Link to="/" className="flex items-center space-x-2 ">
+          <img src={logoastroremove} alt="Logo" className="h-7 w-auto" />
+        </Link>
 
+        {/* DESKTOP MENU */}
+        <nav className="hidden lg:flex items-center space-x-6">
           {navigationItems.map((item, index) => (
             <div
               key={index}
@@ -275,7 +290,7 @@ const Header = () => {
               )}
             </div>
           ))}
-
+ <LanguageSwitcher />
           {/* AUTH SECTION - DESKTOP */}
           <div>
             {
@@ -325,12 +340,11 @@ const Header = () => {
                 </DropdownMenu>
               ) :
                 (
-               ''
-               
+                  <UserLogin />
                 )
             }
           </div>
-        </div>
+        </nav>
 
         {/* MOBILE MENU */}
         <Sheet>
@@ -344,7 +358,7 @@ const Header = () => {
               <SheetTitle>
                 <SheetClose asChild>
                   <Link to="/" className="flex items-center space-x-2">
-                    <img src={logo} alt="Logo" className="h-8 w-auto" />
+                    <img src={logoastroremove} alt="Logo" className="h-8 w-auto" />
                   </Link>
                 </SheetClose>
               </SheetTitle>
@@ -377,8 +391,8 @@ const Header = () => {
                       Dashboard
                     </Button>
                   </SheetClose>)}
-                {/* {(!astrologer && !user) &&
-                  (<UserLogin />)} */}
+                {(!astrologer && !user) &&
+                  (<UserLogin />)}
 
 
                 {(astrologer?.name || user?.name) &&
