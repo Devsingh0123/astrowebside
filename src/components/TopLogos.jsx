@@ -11,7 +11,7 @@ const TopLogos = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY <= 200);
+      setIsVisible(window.scrollY <= 5000);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);

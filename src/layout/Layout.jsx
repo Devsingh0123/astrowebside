@@ -9,7 +9,6 @@ const Layout = () => {
   return (
     <>
     <TopLogos/>
-      {/* <Header /> */}
       <Header />
       <main>
         <Outlet />
