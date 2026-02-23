@@ -540,11 +540,14 @@ const Header = () => {
       const role = Number(localStorage.getItem("role_id"));
       if (role === 2) {
         await dispatch(AstrologerLogout()).unwrap();
+        
       } else if (role === 3) {
         await dispatch(userLogout()).unwrap();
+        
       }
       localStorage.removeItem("token");
       localStorage.removeItem("role_id");
+      
     } catch (err) {
       console.log("Logout error:", err);
     }
