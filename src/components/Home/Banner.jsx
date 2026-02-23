@@ -10,7 +10,7 @@ import bannerVideo from "@/assets/bannerVideo.mp4"
 const Banner = () => {
   return (
     <section className="py-0 from-orange-50 via-yellow-100 to-red-100">
-    <div className=" w-full h-[380px] mx-auto overflow-hidden  border-8 border-white">
+    <div className=" w-full h-full mx-auto overflow-hidden  border-8 border-white">
   <video
     src={bannerVideo}
     autoPlay
@@ -24,7 +24,7 @@ const Banner = () => {
         {/* Top Section */}
         <div className="banner-top   ">
           {/* Left Content */}
-          <div className="banner-left px-10">
+          {/* <div className="banner-left px-10">
             <h1 className="banner-heading">
               Discover What The <br /> Stars Have Written For You ✨
             </h1>
@@ -33,7 +33,7 @@ const Banner = () => {
               world becomes clear once you understand how the universe
               influences it.
             </p>
-          </div>
+          </div> */}
 
           {/* Right Image */}
 
@@ -48,19 +48,19 @@ const Banner = () => {
 
           <div className="relative w-[250px] sm:w-[300px] md:w-[350px] lg:w-[400px] xl:w-[450px] aspect-square mx-auto">
             {/* Inner static image (placed first so it's behind) */}
-            <div className="absolute inset-0 m-13 flex items-center justify-center">
+            {/* <div className="absolute inset-0 m-13 flex items-center justify-center">
               <img
                 src={innerganesh}
                 alt="inner"
                 className="w-[60%] sm:w-[65%] object-contain"
               />
-            </div>
+            </div> */}
             {/* Outer rotating image (placed after, so it's on top) */}
-            <img 
+            {/* <img 
               src={outercircle1}
               alt="outer"
               className="relative w-full h-full object-contain animate-[spin_20s_linear_infinite]"
-            />
+            /> */}
           </div>
         </div>
 
