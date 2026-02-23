@@ -48,9 +48,9 @@ const Faq = () => {
                     className="w-full"
                     defaultValue="item-1"
                 >
-                    {faqData.map(faq =>
+                    {faqData.map((faq) =>
 
-                        <AccordionItem value={`item-${faq.id}`}>
+                        <AccordionItem key={faq.id} value={`item-${faq.id}`}>
                             <AccordionTrigger className={" cursor-pointer font-semibold text-xl"}>{faq.que}</AccordionTrigger>
                             <AccordionContent>
                                 {faq.ans}
