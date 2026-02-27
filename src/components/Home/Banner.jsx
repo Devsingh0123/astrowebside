@@ -251,7 +251,7 @@ const Banner = () => {
             </span>
 
             <Link
-              to="https://store.astroting.com/product"
+              to="https://store.adkrayons.com/product"
               target="_blank"
               className="relative z-10 block"
             >
