@@ -502,6 +502,14 @@ function UpdateAstro() {
                   icon={Globe}
                   maxSelection={3}
                 />
+                <MultiSelect
+                  options={categoryOptions}
+                  selected={selectedCategories}
+                  setSelected={setSelectedCategories}
+                  label="Consultation Categories"
+                  icon={Globe}
+                  maxSelection={3}
+                />
               </CardContent>
             </Card>
           )}
