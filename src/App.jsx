@@ -41,35 +41,32 @@ const ForgotPasswordAstro = lazy(() => import("./components/ForgotPasswordAstro"
 const Dashboard = lazy(() => import("./pages/AstroDashboard/Dashboard"));
 const UpdateAstro = lazy(() => import("./pages/AstroDashboard/UpdateAstro"));
 const Wallet = lazy(() => import("./pages/AstroDashboard/Wallet"));
-const WidhdrowHistory = lazy(() => import("./pages/AstroDashboard/WidhdrowHistory"));
-
-
-
-
+const WidhdrowHistory = lazy(
+  () => import("./pages/AstroDashboard/WidhdrowHistory"),
+);
+const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 
 const App = () => {
-
   const path = useLocation().pathname;
   const dispatch = useDispatch();
   const { astrologer } = useSelector((state) => state.astroAuth);
-  const { user } = useSelector((state) => state.userAuth)
-  const [role, setRole] = useState(localStorage.getItem("role_id"))
+  const { user } = useSelector((state) => state.userAuth);
+  const [role, setRole] = useState(localStorage.getItem("role_id"));
 
   useEffect(() => {
-    const storedRole = localStorage.getItem("role_id")
-    setRole(storedRole)
-  }, [])
+    const storedRole = localStorage.getItem("role_id");
+    setRole(storedRole);
+  }, []);
 
   useEffect(() => {
     if (role == 2 && !astrologer) {
-      dispatch(AstrologerProfile())
+      dispatch(AstrologerProfile());
     }
 
     if (role == 3 && !user) {
-      dispatch(userProfile())
+      dispatch(userProfile());
     }
-  }, [dispatch, role, astrologer, user])
-
+  }, [dispatch, role, astrologer, user]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -88,23 +85,23 @@ const App = () => {
     <>
       <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
         <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route path='/' element={<Home />} />
-            <Route path='/free-kundli' element={<FreeKundli />} />
-            <Route path='/update-user' element={<UpdateUser />} />
-            <Route path='/forgot-password' element={<ForgotPassword />} />
-            <Route path='/forgot-password-astro' element={<ForgotPasswordAstro />} />
-          
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/free-kundli" element={<FreeKundli />} />
+            <Route path="/update-user" element={<UpdateUser />} />
             {/* <Route path='/chat-with-astrologer' element={<ChatWithAstro />} /> */}
-            <Route path='/talk-to-astrologer' element={<CallwithAstro />} />
-            <Route path='/astro-details/:id' element={<Astrodetails />} />
-            <Route path='/horoscopes/:date' element={<Horoscopes />} />
-            <Route path='/horoscopes/:time/:horos' element={<HoroscopeDetails />} />
-            <Route path='/astro-login' element={<AstroLogin />} />
-            <Route path='/astro-register' element={<AstroRegister />} />
+            <Route path="/talk-to-astrologer" element={<CallwithAstro />} />
+            <Route path="/astro-details/:id" element={<Astrodetails />} />
+            <Route path="/horoscopes/:date" element={<Horoscopes />} />
+            <Route
+              path="/horoscopes/:time/:horos"
+              element={<HoroscopeDetails />}
+            />
+            <Route path="/astro-login" element={<AstroLogin />} />
+            <Route path="/astro-register" element={<AstroRegister />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
-
+            <Route path="/services/:slug" element={<ServiceDetail />} />
 
             <Route path="/annanprashan-muhurat" element={<Annanprashan />} />
             <Route path="/aamkaran-muhurat" element={<Namkaran />} />
