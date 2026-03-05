@@ -118,10 +118,11 @@ const App = () => {
 
             <Route path="/astro-login" element={<AstroLogin />} />
             <Route path="/astro-register" element={<AstroRegister />} />
+            {/* <Route path="/blogs" element={<Blog />} />
+            <Route path="/blogs/:id" element={<BlogDetails />} /> */}
             <Route path="/blogs" element={<Blog />} />
-            <Route path="/blogs/:id" element={<BlogDetails />} />
+            <Route path="/blogs/:slug" element={<BlogDetails />} />
             <Route path="/services/:slug?" element={<ServiceDetail />} />
-
             <Route path="/annanprashan-muhurat" element={<Annanprashan />} />
             <Route path="/aamkaran-muhurat" element={<Namkaran />} />
             <Route path="/car-bike-muhurat" element={<CarBike />} />
