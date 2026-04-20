@@ -47,7 +47,7 @@ const WalletDashboard = () => {
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(fetchWalletDetails());
-      if (role === '2') dispatch(fetchPayoutHistory());
+      // if (role === '2') dispatch(fetchPayoutHistory());
     }
   }, [dispatch, isLoggedIn, role]);
 
