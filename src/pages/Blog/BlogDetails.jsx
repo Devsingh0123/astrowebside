@@ -15,7 +15,7 @@ const BlogDetails = () => {
   // fetch blogs
   const fetchBlogs = async () => {
     const res = await axios.get("https://astro.astrotring.com/api/blogs");
-    console.log("blogdetails",res)
+    console.log("blogdetails", res)
 
     setBlogs(res.data.data);
 
@@ -155,7 +155,7 @@ const BlogDetails = () => {
             <div>
               <h3 className="text-xl font-bold mb-4">Categories</h3>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col gap-2">
                 {categories.map((cat) => (
                   <Link
                     key={cat.id}
